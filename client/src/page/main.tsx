@@ -1,5 +1,9 @@
 const Main = () => {
-  return <h1>main</h1>;
+  const fn = () => {
+    console.log("click");
+  }
+
+  return <h1 onClick={fn}>main</h1>;
 };
 
 export default Main;
