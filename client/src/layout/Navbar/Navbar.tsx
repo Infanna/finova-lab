@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center border border-gray-300 p-4 w-full">
+    <div className="flex justify-between items-center shadow p-4 w-full">
       <div className="flex items-center gap-2">
         <AiOutlineMenu />
         <p className="text-lg">📉</p>
@@ -26,7 +26,7 @@ const Navbar = () => {
       </div>
       <div className="flex items-center h-1/2 gap-2">
         <AiOutlineBell />
-        <button className="flex items-center gap-2 border border-gray-300 px-4 py-2"> <AiOutlineDown /> 🇹🇭 </button>
+        <button className="flex items-center gap-2 px-4 py-2"> 🇹🇭 ไทย <AiOutlineDown /> </button>
       </div>
       <div className="flex items-center gap-3">
         <img
