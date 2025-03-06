@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../page/main";
+import Main from "../page/main/main";
 import Page1 from "../page/page1";
 
 const AppRouter = createBrowserRouter([

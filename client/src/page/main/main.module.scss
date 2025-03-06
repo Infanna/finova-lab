@@ -1,0 +1,40 @@
+.navBarBlock {
+    background-color: #F3F7F8;
+    padding: 1.5rem;
+    border: red solid 1px;
+}
+
+.greetingBlock {
+    background-color: #F3F7F8;
+    padding: 1.5rem;
+    height: 0.5rem;
+    border: red solid 1px;
+
+}
+
+.contentBlock {
+    background-color: #F3F7F8;
+    padding: 1.5rem;
+    max-height: 100%;
+    display: grid;
+    gap: .5%;
+    grid-template-columns: 2fr 3fr 2fr;
+    align-items: center;
+    border: red solid 1px;
+
+}
+
+.contentCard {
+    background-color: #FFFFFF;
+    border-radius: 0.5em;
+    max-width: 100%;
+    height: 50rem;
+    border: red solid 1px;
+
+}
+
+.footer {
+    background-color: #F3F7F8;
+    padding: 1.5rem;
+    border: red solid 1px;
+}
