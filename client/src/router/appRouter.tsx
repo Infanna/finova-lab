@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../page/main/main";
 import Page1 from "../page/page1";
-import TransactionMenu from "../components/TransactionMenu";
+import Withdraw from "../page/Withdraw/Withdraw";
 
 const AppRouter = createBrowserRouter([
   {
@@ -9,8 +9,8 @@ const AppRouter = createBrowserRouter([
     element: <Main />,
   },
   {
-    path: "/t",
-    element: <TransactionMenu />,
+    path: "/withdraw",
+    element: <Withdraw />,
   },
   {
     path: "/page1",

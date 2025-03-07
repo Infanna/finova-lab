@@ -7,10 +7,17 @@ import closeAccount from "../assets/close-account.png";
 import cashManagement from "../assets/cash-management.png";
 
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const TransactionMenu = () => {
+  const navigate = useNavigate();
+
   const fn = () => {
     console.log("click");
+  };
+
+  const goToWithdrawPage = () => {
+    navigate("/withdraw");
   };
 
   return (
@@ -20,7 +27,11 @@ const TransactionMenu = () => {
           <Button label="ฝาก" onClick={fn} icon={deposit}></Button>
         </div>
         <div className="p-3 row-span-2">
-          <Button label="ถอน" onClick={fn} icon={withdraw}></Button>
+          <Button
+            label="ถอน"
+            onClick={goToWithdrawPage}
+            icon={withdraw}
+          ></Button>
         </div>
         <div className="p-3">
           <Button label="โอน" onClick={fn} icon={transfer}></Button>
