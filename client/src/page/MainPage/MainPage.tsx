@@ -9,7 +9,7 @@ export default function MainPage() {
   const contentCardBorder = "p-2";
 
   return (
-    <div className="mt-20 mb-20 min-h-[100vh] grid grid-cols-[2fr_3fr_2fr] bg-[#F3F7F8]">
+    <div className="mt-16 mb-8 min-h-[100vh] grid grid-cols-[2fr_3fr_2fr] bg-[#F3F7F8]">
       <div className={contentCardBorder}>
         <TransactionOverview
           transactionBranch={progressTransaction}

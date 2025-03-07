@@ -1,7 +1,26 @@
 import { AiOutlineBell, AiOutlineDown, AiOutlineMenu } from "react-icons/ai";
-import { tellerData } from "../../constants/MockTellerData";
+import { useEffect, useState } from "react";
+import { User } from "../../services/user";
 
 const Navbar = () => {
+  const [user, setUser] = useState<User>({
+    name: "",
+    branch: "",
+    image: "",
+    position: "",
+    id: "",
+  });
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await fetch("http://localhost:5173/user");
+      const user = await response.json();
+      setUser(user);
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <div className="fixed top-0 left-0 flex justify-between items-center shadow p-3 w-full gap-10 bg-white">
       <div className="flex items-center gap-2">
@@ -26,15 +45,15 @@ const Navbar = () => {
         </div>
         <img
           className="w-10 h-10 rounded-full"
-          src={tellerData.image}
+          src={user.image}
           alt="Profile"
         />
         <div className="text-sm">
-          <p className="font-semibold text-black">{tellerData.name}</p>
+          <p className="font-semibold text-black">{user.name}</p>
           <div className="flex gap-2">
-            <p>{tellerData.id}</p>
-            <p>{tellerData.position}</p>
-            <p>{tellerData.branch}</p>
+            <p>{user.id}</p>
+            <p>{user.position}</p>
+            <p>{user.branch}</p>
           </div>
         </div>
         <AiOutlineDown />
