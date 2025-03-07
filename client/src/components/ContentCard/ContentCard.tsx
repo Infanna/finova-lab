@@ -5,8 +5,8 @@ export default function ContentCard({ row, contentList }: CardRow) {
   const rowItems = new Array(row)
     .fill(Object.keys(Array(row)), 0, row)
     .map((_row, index) => (
-      <div>
-        <span>{contentList[index].title}</span>
+      <div key={index + "-wrapper"}>
+        <span key={index + "-title"}>{contentList[index].title}</span>
         <div key={index}>{contentList[index].content}</div>
       </div>
     ));

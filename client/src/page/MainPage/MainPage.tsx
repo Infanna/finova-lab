@@ -37,8 +37,19 @@ export default function MainPage() {
           ]}
         ></ContentCard>
       </div>
+      <ContentCard
+        key={"transaction"}
+        row={1}
+        contentList={[
+          {
+            title: "เมนูธุรกรรม",
+            content: <TransactionMenu></TransactionMenu>,
+          },
+        ]}
+      ></ContentCard>
       <div className={contentCardBorder}>
         <ContentCard
+          key={"rating"}
           row={1}
           contentList={[
             {
