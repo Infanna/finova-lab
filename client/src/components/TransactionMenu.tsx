@@ -1,4 +1,10 @@
-import icon1 from "../assets/icon1.png";
+import deposit from "../assets/deposit.png";
+import withdraw from "../assets/withdraw.png";
+import transfer from "../assets/transfer.png";
+import checkBank from "../assets/check-bank.png";
+import closeAccount from "../assets/close-account.png";
+import cashManagement from "../assets/cash-management.png";
+
 import Button from "./Button";
 
 const TransactionMenu = () => {
@@ -10,29 +16,33 @@ const TransactionMenu = () => {
     <div className="container mx-auto">
       <div className="grid h-80 grid-flow-row-dense grid-cols-3 grid-rows-3">
         <div className="p-3 row-span-2">
-          <Button label="ฝาก" onClick={fn} icon={icon1}></Button>
+          <Button label="ฝาก" onClick={fn} icon={deposit}></Button>
         </div>
         <div className="p-3 row-span-2">
-          <Button label="ถอน" onClick={fn} icon={icon1}></Button>
+          <Button label="ถอน" onClick={fn} icon={withdraw}></Button>
         </div>
         <div className="p-3">
-          <Button label="โอน" onClick={fn} icon={icon1}></Button>
+          <Button label="โอน" onClick={fn} icon={transfer}></Button>
         </div>
         <div className="p-3">
-          <Button label="จ่ายบิล" onClick={fn} icon={icon1}></Button>
+          <Button label="จ่ายบิล" onClick={fn} icon={transfer}></Button>
         </div>
         <div className="p-3">
           <Button
             label={"เช็คธนาคาร\n(MC/GC/Draft)"}
             onClick={fn}
-            icon={icon1}
+            icon={checkBank}
           ></Button>
         </div>
         <div className="p-3">
-          <Button label="ปิดบัญชี" onClick={fn} icon={icon1}></Button>
+          <Button label="ปิดบัญชี" onClick={fn} icon={closeAccount}></Button>
         </div>
         <div className="p-3">
-          <Button label="บริหารเงินสด" onClick={fn} icon={icon1}></Button>
+          <Button
+            label="บริหารเงินสด"
+            onClick={fn}
+            icon={cashManagement}
+          ></Button>
         </div>
       </div>
     </div>
