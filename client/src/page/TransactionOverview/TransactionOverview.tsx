@@ -95,6 +95,7 @@ function Drawer({ remain, total, icon }: IDrawerProps) {
         </div>
         <div className="w-full bg-gray-200 h-2 rounded overflow-hidden">
           <div
+            data-testid="overview-progress-bar"
             className="bg-green-600 h-2 rounded overflow-hidden"
             style={{ width: `${(remain / total) * 100}%` }}
           ></div>

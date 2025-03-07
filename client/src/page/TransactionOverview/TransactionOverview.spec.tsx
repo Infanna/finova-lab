@@ -52,5 +52,27 @@ describe("Transaction overview component", () => {
     expect(screen.getByTestId("MyBranch-quantity-3").textContent).toEqual("6");
   });
 
-  test("when drawer data change, it progress bar should also change", () => {});
+  test("when drawer data change, it progress bar should also change", () => {
+    data.drawer = { remain: 3, total: 4 };
+    const { rerender } = render(
+      <TransactionOverview
+        transactionWork={data.mywork}
+        transactionBranch={data.branch}
+        drawer={data.drawer}
+      />,
+    );
+    const elmWidth = screen.getByTestId("overview-progress-bar").style.width;
+    expect(elmWidth).toEqual("75%");
+
+    rerender(
+      <TransactionOverview
+        transactionWork={data.mywork}
+        transactionBranch={data.branch}
+        drawer={{ total: 4, remain: 2 }}
+      />,
+    );
+
+    const newElmWidth = screen.getByTestId("overview-progress-bar").style.width;
+    expect(newElmWidth).toEqual("50%");
+  });
 });
