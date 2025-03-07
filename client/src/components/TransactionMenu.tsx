@@ -1,5 +1,5 @@
-import icon1 from "../../assets/icon1.png";
-import Button from "../../components/Button";
+import icon1 from "../assets/icon1.png";
+import Button from "./Button";
 
 const TransactionMenu = () => {
   const fn = () => {

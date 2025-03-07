@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../page/main/main";
 import Page1 from "../page/page1";
-import TransactionMenu from "../page/ transaction-menu/transaction-menu";
+import TransactionMenu from "../components/TransactionMenu";
 
 const AppRouter = createBrowserRouter([
   {
