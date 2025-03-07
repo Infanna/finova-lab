@@ -8,12 +8,14 @@ describe("TransactionMenu", () => {
   }));
 
   describe("NavigateToPage", () => {
+    const mockNavigate = vi.fn();
+    (useNavigate as Mock).mockReturnValue(mockNavigate);
+    const navigateToPage = NavigateToPage();
+
     test("should navigate to the correct path", () => {
-      const mockNavigate = vi.fn();
-      (useNavigate as Mock).mockReturnValue(mockNavigate);
       const path = "/test-path";
 
-      NavigateToPage(path);
+      navigateToPage(path);
 
       expect(mockNavigate).toHaveBeenCalledWith(path);
     });

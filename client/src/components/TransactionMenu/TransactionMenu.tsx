@@ -8,47 +8,36 @@ import cashManagement from "../../assets/cash-management.png";
 import Button from "../Button/Button";
 import { NavigateToPage } from "./TransactionMenu.service";
 
-const TransactionMenu = () => {
-  const fn = () => {
-    console.log("click");
-  };
+const TransactionMenu: React.FC = () => {
+  const navigateToPage = NavigateToPage();
+
+  const buttonInfos = [
+    { type: 1, label: "ฝาก", path: "", icon: deposit },
+    { type: 1, label: "ถอน", path: "/withdraw", icon: withdraw },
+    { type: 2, label: "โอน", path: "", icon: transfer },
+    { type: 2, label: "จ่ายบิล", path: "", icon: payBill },
+    { type: 2, label: "เช็คธนาคาร\n(MC/GC/Draft)", path: "", icon: checkBank },
+    { type: 2, label: "ปิดบัญชี", path: "", icon: closeAccount },
+    { type: 2, label: "บริหารเงินสด", path: "", icon: cashManagement },
+  ];
 
   return (
     <div className="container mx-auto">
       <div className="grid h-80 grid-flow-row-dense grid-cols-3 grid-rows-3">
-        <div className="p-3 row-span-2">
-          <Button label="ฝาก" onClick={fn} icon={deposit}></Button>
-        </div>
-        <div className="p-3 row-span-2">
-          <Button
-            label="ถอน"
-            onClick={() => NavigateToPage("/withdraw")}
-            icon={withdraw}
-          ></Button>
-        </div>
-        <div className="p-3">
-          <Button label="โอน" onClick={fn} icon={transfer}></Button>
-        </div>
-        <div className="p-3">
-          <Button label="จ่ายบิล" onClick={fn} icon={payBill}></Button>
-        </div>
-        <div className="p-3">
-          <Button
-            label={"เช็คธนาคาร\n(MC/GC/Draft)"}
-            onClick={fn}
-            icon={checkBank}
-          ></Button>
-        </div>
-        <div className="p-3">
-          <Button label="ปิดบัญชี" onClick={fn} icon={closeAccount}></Button>
-        </div>
-        <div className="p-3">
-          <Button
-            label="บริหารเงินสด"
-            onClick={fn}
-            icon={cashManagement}
-          ></Button>
-        </div>
+        {buttonInfos.map((buttonInfo, index) => {
+          return (
+            <div
+              className={`p-3 ${buttonInfo.type === 1 ? "row-span-2" : ""}`}
+              key={index}
+            >
+              <Button
+                label={buttonInfo.label}
+                onClick={() => navigateToPage(buttonInfo.path)}
+                icon={buttonInfo.icon}
+              ></Button>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
