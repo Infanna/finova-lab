@@ -1,9 +1,9 @@
 import ContentCard from "../../component/content-card/ContentCard";
+import Rating from "../../components/Rating/Rating";
 import TransactionMenu from "../../components/TransactionMenu/TransactionMenu";
 import TransactionOverview from "../TransactionOverview/TransactionOverview";
 export default function MainPage() {
-  const contentCardBorder =
-    "p-2";
+  const contentCardBorder = "p-2";
   return (
     <div className="mt-20 mb-20 min-h-[100vh] grid grid-cols-[2fr_3fr_2fr] bg-[#F3F7F8]">
       <div className={contentCardBorder}>
@@ -18,7 +18,17 @@ export default function MainPage() {
           },
         ]}
       ></ContentCard>
-      <div className={contentCardBorder}>รายการอื่นๆ</div>
+      <div className={contentCardBorder}>
+        <ContentCard
+          row={1}
+          contentList={[
+            {
+              title: "คะแนนความพึงพอใจ",
+              content: <Rating></Rating>,
+            },
+          ]}
+        ></ContentCard>
+      </div>
     </div>
   );
 }
