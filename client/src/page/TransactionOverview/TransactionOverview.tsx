@@ -1,8 +1,8 @@
-import React from "react";
-import { progressTransaction } from "../../constants/MockProgressTransaction";
+import React, { useEffect, useState } from "react";
 import { RiBankFill } from "react-icons/ri";
 import { TiDocumentText } from "react-icons/ti";
 import { BiTransfer } from "react-icons/bi";
+import classNames from "classnames";
 
 interface ITransactionProps {
   title: string;
@@ -21,15 +21,6 @@ function Transactions({
   title = "My Work",
   icon,
 }: ITransactionProps) {
-  const summary = transactions.reduce(
-    (acc, v) => ({
-      name: acc.name,
-      amount: acc.amount + v.amount,
-      quantity: acc.quantity + v.quantity,
-    }),
-    { name: "รวม", quantity: 0, amount: 0 }
-  );
-
   const formatter = Intl.NumberFormat(undefined, {});
 
   return (
@@ -42,25 +33,33 @@ function Transactions({
       <div className="justify-self-center font-bold">รายการ</div>
       <div className="justify-self-end font-bold">จำนวนเงิน</div>
       <div className="col-span-3 grid grid-cols-2">
-        {transactions.map(({ name, quantity, amount }) => {
+        {transactions.map(({ name, quantity, amount }, index) => {
+          const compactTitle = title.replace(/\s/g, "");
           return (
-            <React.Fragment key={`${title}-${name}`}>
-              <div className="flex place-content-between">
-                <span>{name}</span>
-                <span>{quantity}</span>
+            <React.Fragment key={`${compactTitle}-${name}`}>
+              <div
+                className={classNames("flex place-content-between", {
+                  "font-bold": index == transactions.length - 1,
+                })}
+              >
+                <span data-testid={`${compactTitle}-name-${index}`}>
+                  {name}
+                </span>
+                <span data-testid={`${compactTitle}-quantity-${index}`}>
+                  {quantity}
+                </span>
               </div>
-              <div className="justify-self-end">{formatter.format(amount)}</div>
+              <div
+                data-testid={`${compactTitle}-amount-${index}`}
+                className={classNames("justify-self-end", {
+                  "font-bold": index == transactions.length - 1,
+                })}
+              >
+                {formatter.format(amount)}
+              </div>
             </React.Fragment>
           );
         })}
-
-        <div className="flex place-content-between font-bold">
-          <span className="">{summary.name}</span>
-          <span className="">{summary.quantity}</span>
-        </div>
-        <div className="justify-self-end font-bold">
-          {formatter.format(summary.amount)}
-        </div>
       </div>
     </div>
   );
@@ -106,23 +105,57 @@ function Drawer({ remain, total, icon }: IDrawerProps) {
   );
 }
 
-export default function TransactionOverview() {
+interface ITransactionOverviewProps {
+  transactionWork: ITransaction[];
+  transactionBranch: ITransaction[];
+  drawer: { total: number; remain: number };
+}
+
+export default function TransactionOverview(props: ITransactionOverviewProps) {
+  const [myWork, setMyWork] = useState<ITransaction[]>([]);
+  const [branch, setBranch] = useState<ITransaction[]>([]);
+
+  useEffect(() => {
+    const summary = calculateAll(props.transactionWork);
+    const data = props.transactionWork.map((tx) => tx);
+    data.push(summary);
+    setMyWork(data);
+  }, [props.transactionWork]);
+
+  useEffect(() => {
+    const summary = calculateAll(props.transactionBranch);
+    const data = props.transactionBranch.map((tx) => tx);
+    data.push(summary);
+    setBranch(data);
+  }, [props.transactionBranch]);
+
+  function calculateAll(transactions: ITransaction[]) {
+    return transactions.reduce(
+      (acc, v) => ({
+        name: acc.name,
+        amount: acc.amount + v.amount,
+        quantity: acc.quantity + v.quantity,
+      }),
+      { name: "รวม", quantity: 0, amount: 0 },
+    );
+  }
+
   return (
     <div className="h-full bg-white ring-1 ring-gray-200 rounded-sm shadow-sm px-[2rem] py-[1.2rem] grid grid-rows-[4fr_3fr_4fr] divide-y-1 divide-gray-200 ">
       <div className="pb-8">
         <Transactions
           title="My Work"
-          transactions={progressTransaction}
+          transactions={myWork}
           icon={<TiDocumentText />}
         />
       </div>
       <div className="py-8">
-        <Drawer remain={10000} total={30000} icon={<BiTransfer />} />
+        <Drawer {...props.drawer} icon={<BiTransfer />} />
       </div>
       <div className="pt-8">
         <Transactions
           title="My Branch"
-          transactions={progressTransaction}
+          transactions={branch}
           icon={<RiBankFill />}
         />
       </div>
