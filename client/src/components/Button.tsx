@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({ label, onClick, icon, style }) => {
       ref={buttonRef}
       onClick={onClick}
       style={style}
-      className="h-full w-full bg-white font-medium rounded-lg text-sm shadow-md"
+      className="h-full w-full bg-white font-medium rounded-lg text-sm shadow-md inset-shadow-xs"
     >
       {icon && (
         <div className="flex justify-center items-center">
