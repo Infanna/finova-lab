@@ -1,4 +1,4 @@
-import ContentCard from "../../component/content-card/ContentCard";
+import ContentCard from "../../components/ContentCard/ContentCard";
 import Rating from "../../components/Rating/Rating";
 import TransactionMenu from "../../components/TransactionMenu/TransactionMenu";
 import TransactionOverview from "../TransactionOverview/TransactionOverview";
