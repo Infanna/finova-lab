@@ -5,9 +5,16 @@ type ButtonProps = {
   onClick: () => void;
   icon?: string;
   style?: React.CSSProperties;
+  iconReact?: React.ReactNode;
 };
 
-const Button: React.FC<ButtonProps> = ({ label, onClick, icon, style }) => {
+const Button: React.FC<ButtonProps> = ({
+  label,
+  onClick,
+  icon,
+  style,
+  iconReact,
+}) => {
   const [isTall, setIsTall] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -35,6 +42,7 @@ const Button: React.FC<ButtonProps> = ({ label, onClick, icon, style }) => {
         {icon && (
           <img src={icon} className="w-15 h-15 object-contain" alt="My Icon" />
         )}
+        {iconReact && <div className="text-ttb-blue text-3xl">{iconReact}</div>}
         {!isTall && (
           <div className="block break-words whitespace-pre-line">{label}</div>
         )}

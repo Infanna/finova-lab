@@ -27,7 +27,7 @@ function Transactions({
       amount: acc.amount + v.amount,
       quantity: acc.quantity + v.quantity,
     }),
-    { name: "รวม", quantity: 0, amount: 0 },
+    { name: "รวม", quantity: 0, amount: 0 }
   );
 
   const formatter = Intl.NumberFormat(undefined, {});
@@ -38,7 +38,7 @@ function Transactions({
         <span className="text-ttb-blue">{icon}</span>
         <span>{title}</span>
       </div>
-      <div className="justify-self-start font-bold">ธรุกรรม</div>
+      <div className="justify-self-start font-bold">ธุรกรรม</div>
       <div className="justify-self-center font-bold">รายการ</div>
       <div className="justify-self-end font-bold">จำนวนเงิน</div>
       <div className="col-span-3 grid grid-cols-2">
