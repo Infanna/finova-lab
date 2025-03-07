@@ -3,8 +3,6 @@ import StarButton from "../StarButton/StarButton";
 
 const Rating = () => {
   const [rating, setRating] = React.useState(0);
-  //   function updateScore(score: Number) {
-  //   }
   return (
     <>
       <div className="p-5 grid grid-col gap-5 h-full w-full bg-white font-medium rounded-lg text-sm shadow-md inset-shadow-xs justify-items-center">
@@ -17,16 +15,17 @@ const Rating = () => {
                 const score = index + 1;
                 return (
                   <span
-                    className=""
                     key={score}
                     onMouseDown={() => setRating(index + 1)}
                     onMouseOver={() => setRating(index + 1)}
                     onMouseOut={() => setRating(index + 1)}
+                    data-testid={`star-${score}`}
                   >
                     <StarButton
                       key={score}
                       value={score}
                       isActive={score <= rating}
+                      ata-testid=""
                     ></StarButton>
                   </span>
                 );
