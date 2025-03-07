@@ -5,19 +5,12 @@ import payBill from "../../assets/pay-bill.png";
 import checkBank from "../../assets/check-bank.png";
 import closeAccount from "../../assets/close-account.png";
 import cashManagement from "../../assets/cash-management.png";
-
 import Button from "../Button/Button";
-import { useNavigate } from "react-router-dom";
+import { NavigateToPage } from "./TransactionMenu.service";
 
 const TransactionMenu = () => {
-  const navigate = useNavigate();
-
   const fn = () => {
     console.log("click");
-  };
-
-  const goToWithdrawPage = () => {
-    navigate("/withdraw");
   };
 
   return (
@@ -29,7 +22,7 @@ const TransactionMenu = () => {
         <div className="p-3 row-span-2">
           <Button
             label="ถอน"
-            onClick={goToWithdrawPage}
+            onClick={() => NavigateToPage("/withdraw")}
             icon={withdraw}
           ></Button>
         </div>
