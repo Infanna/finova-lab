@@ -1,6 +1,7 @@
 import deposit from "../assets/deposit.png";
 import withdraw from "../assets/withdraw.png";
 import transfer from "../assets/transfer.png";
+import payBill from "../assets/pay-bill.png";
 import checkBank from "../assets/check-bank.png";
 import closeAccount from "../assets/close-account.png";
 import cashManagement from "../assets/cash-management.png";
@@ -25,7 +26,7 @@ const TransactionMenu = () => {
           <Button label="โอน" onClick={fn} icon={transfer}></Button>
         </div>
         <div className="p-3">
-          <Button label="จ่ายบิล" onClick={fn} icon={transfer}></Button>
+          <Button label="จ่ายบิล" onClick={fn} icon={payBill}></Button>
         </div>
         <div className="p-3">
           <Button
