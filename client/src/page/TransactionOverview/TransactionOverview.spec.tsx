@@ -1,9 +1,9 @@
-import { render, screen, cleanup } from "@testing-library/react";
-import { test, describe, expect, afterEach, beforeEach } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { test, describe, expect, beforeEach } from "vitest";
 import TransactionOverview from "./TransactionOverview";
 
 describe("Transaction overview component", () => {
-  let initialData = {
+  const initialData = {
     mywork: [
       { name: "A", quantity: 1, amount: 10000 },
       { name: "B", quantity: 3, amount: 4200 },
@@ -20,10 +20,6 @@ describe("Transaction overview component", () => {
 
   beforeEach(() => {
     data = JSON.parse(JSON.stringify(initialData));
-  });
-
-  afterEach(() => {
-    cleanup();
   });
 
   test("should calculate all transaction amount correctly", () => {
