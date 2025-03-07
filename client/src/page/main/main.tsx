@@ -1,4 +1,4 @@
-import TransactionMenu from "../../components/TransactionMenu";
+import TransactionMenu from "../../components/TransactionMenu/TransactionMenu";
 import styles from "./main.module.scss";
 export default function MainPage() {
   return (

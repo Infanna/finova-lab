@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../page/main/main";
+import MainPage from "../page/Main/main";
 import Withdraw from "../page/Withdraw/Withdraw";
 import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
@@ -10,7 +10,7 @@ const AppRouter = createBrowserRouter([
     element: (
       <>
         <Navbar />
-        <Main />
+        <MainPage />
         <Footer />
       </>
     ),

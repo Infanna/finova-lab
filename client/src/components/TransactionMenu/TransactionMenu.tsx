@@ -1,12 +1,12 @@
-import deposit from "../assets/deposit.png";
-import withdraw from "../assets/withdraw.png";
-import transfer from "../assets/transfer.png";
-import payBill from "../assets/pay-bill.png";
-import checkBank from "../assets/check-bank.png";
-import closeAccount from "../assets/close-account.png";
-import cashManagement from "../assets/cash-management.png";
+import deposit from "../../assets/deposit.png";
+import withdraw from "../../assets/withdraw.png";
+import transfer from "../../assets/transfer.png";
+import payBill from "../../assets/pay-bill.png";
+import checkBank from "../../assets/check-bank.png";
+import closeAccount from "../../assets/close-account.png";
+import cashManagement from "../../assets/cash-management.png";
 
-import Button from "./Button";
+import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 
 const TransactionMenu = () => {

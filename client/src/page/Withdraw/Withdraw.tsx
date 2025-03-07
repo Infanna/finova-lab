@@ -1,5 +1,5 @@
-const WithdrawPage = () => {
+const Withdraw = () => {
   return <h1>withdraw page</h1>;
 };
 
-export default WithdrawPage;
+export default Withdraw;
