@@ -19,9 +19,9 @@ const Button: React.FC<ButtonProps> = ({ label, onClick, icon, style }) => {
     };
 
     checkHeight();
-    window.addEventListener("resize", checkHeight); // ตรวจสอบเมื่อขนาดหน้าจอเปลี่ยน
+    window.addEventListener("resize", checkHeight);
 
-    return () => window.removeEventListener("resize", checkHeight); // ลบ event listener เมื่อ component unmount
+    return () => window.removeEventListener("resize", checkHeight);
   }, []);
 
   return (
@@ -31,12 +31,14 @@ const Button: React.FC<ButtonProps> = ({ label, onClick, icon, style }) => {
       style={style}
       className="h-full w-full bg-white font-medium rounded-lg text-sm shadow-md inset-shadow-xs"
     >
-      {icon && (
-        <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center">
+        {icon && (
           <img src={icon} className="w-15 h-15 object-contain" alt="My Icon" />
-          {!isTall && <div className="block break-words whitespace-pre-line">{label}</div>}
-        </div>
-      )}
+        )}
+        {!isTall && (
+          <div className="block break-words whitespace-pre-line">{label}</div>
+        )}
+      </div>
       {isTall && (
         <div className="flex justify-start items-center">
           <div className="block break-words w-full">{label}</div>
