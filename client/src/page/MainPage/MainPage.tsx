@@ -43,7 +43,7 @@ export default function MainPage() {
         contentList={[
           {
             title: "เมนูธุรกรรม",
-            content: <TransactionMenu></TransactionMenu>,
+            content: <Rating></Rating>,
           },
         ]}
       ></ContentCard>
