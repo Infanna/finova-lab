@@ -1,11 +1,12 @@
 import React from "react";
+import { progressTransaction } from "../../constants/MockProgressTransaction";
 
 interface ITransactionProps {
   title: string;
   transactions: ITransaction[];
 }
 
-interface ITransaction {
+export interface ITransaction {
   name: string;
   quantity: number;
   amount: number;
@@ -18,7 +19,7 @@ function Transactions({ transactions, title = "My Work" }: ITransactionProps) {
       amount: acc.amount + v.amount,
       quantity: acc.quantity + v.quantity,
     }),
-    { name: "รวม", quantity: 0, amount: 0 },
+    { name: "รวม", quantity: 0, amount: 0 }
   );
 
   const formatter = Intl.NumberFormat(undefined, {});
@@ -91,39 +92,16 @@ function Drawer({ remain, total }: IDrawerProps) {
 }
 
 export default function TransactionOverview() {
-  const data: ITransaction[] = [
-    {
-      name: "ฝาก",
-      quantity: 3,
-      amount: 100000,
-    },
-    {
-      name: "ถอน",
-      quantity: 3,
-      amount: 100000,
-    },
-    {
-      name: "โอน",
-      quantity: 3,
-      amount: 100000,
-    },
-    {
-      name: "จ่ายบิล",
-      quantity: 3,
-      amount: 100000,
-    },
-  ];
-
   return (
     <div className="h-full bg-white ring-1 ring-gray-200 rounded-sm shadow-sm px-[2rem] py-[1.2rem] grid grid-rows-[4fr_3fr_4fr] divide-y-1 divide-gray-200 ">
       <div className="pb-8">
-        <Transactions title="My Work" transactions={data} />
+        <Transactions title="My Work" transactions={progressTransaction} />
       </div>
       <div className="py-8">
         <Drawer remain={10000} total={30000} />
       </div>
       <div className="pt-8">
-        <Transactions title="My Branch" transactions={data} />
+        <Transactions title="My Branch" transactions={progressTransaction} />
       </div>
     </div>
   );
