@@ -67,3 +67,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+@theme {
+  --color-ttb-blue: #0050f0;
+}
