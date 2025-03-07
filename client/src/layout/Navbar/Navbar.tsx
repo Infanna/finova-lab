@@ -3,7 +3,7 @@ import { tellerData } from "../../constants/MockTellerData";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center shadow p-4 w-full gap-10">
+    <div className="fixed top-0 left-0 flex justify-between items-center shadow p-3 w-full gap-10 bg-white">
       <div className="flex items-center gap-2">
         <AiOutlineMenu />
         <p className="text-lg">📉</p>
