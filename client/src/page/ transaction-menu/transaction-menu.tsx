@@ -1,6 +1,6 @@
-import Button from "../../component/Button";
 import "./transaction-menu.css";
 import icon1 from "../../assets/icon1.png";
+import Button from "../../components/Button";
 
 const TransactionMenu = () => {
   const fn = () => {
