@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainPage from "../page/Main/main";
 import Withdraw from "../page/Withdraw/Withdraw";
 import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
+import MainPage from "../page/MainPage/MainPage";
 
 const AppRouter = createBrowserRouter([
   {
